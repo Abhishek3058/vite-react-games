@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Sidebar from "./layout/Sidebar";
+import TicTacToe from "./components/TicTacToe";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="d-flex">
+        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        
+        {/* Main Content Area */}
+        <div
+          className="container-fluid"
+          style={{
+            marginLeft: isSidebarOpen ? "260px" : "0px",
+            padding: "30px",
+            minHeight: "100vh",
+            backgroundColor: "#f8f9fa",
+            transition: "margin-left 0.3s ease",
+            width: isSidebarOpen ? "calc(100% - 260px)" : "100%",
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<h1 className="text-center mt-5 text-dark">Welcome to the Game Zone 🎮</h1>} />
+            <Route path="/tic-tac-toe" element={<TicTacToe />} />
+          </Routes>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
