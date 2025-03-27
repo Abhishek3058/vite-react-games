@@ -1,0 +1,100 @@
+body {
+    background-color: #faf8ef;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .text-center {
+    color: #776e65;
+  }
+  
+  .grid-container {
+    display: inline-block;
+    padding: 10px;
+    background-color: #bbada0;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .d-flex {
+    display: flex;
+  }
+  
+  .grid-cell {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background-color: #cdc1b4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #776e65;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .filled {
+    background-color: #eee4da;
+  }
+  
+  .grid-cell[data-value='2'] {
+    background-color: #eee4da;
+    color: #776e65;
+  }
+  
+  .grid-cell[data-value='4'] {
+    background-color: #ede0c8;
+    color: #776e65;
+  }
+  
+  .grid-cell[data-value='8'] {
+    background-color: #f2b179;
+    color: white;
+  }
+  
+  .grid-cell[data-value='16'] {
+    background-color: #f59563;
+    color: white;
+  }
+  
+  .grid-cell[data-value='32'] {
+    background-color: #f67c5f;
+    color: white;
+  }
+  
+  .grid-cell[data-value='64'] {
+    background-color: #f65e3b;
+    color: white;
+  }
+  
+  .grid-cell[data-value='128'] {
+    background-color: #edcf72;
+    color: white;
+  }
+  
+  .grid-cell[data-value='256'] {
+    background-color: #edcc61;
+    color: white;
+  }
+  
+  .grid-cell[data-value='512'] {
+    background-color: #edc850;
+    color: white;
+  }
+  
+  .grid-cell[data-value='1024'] {
+    background-color: #edc53f;
+    color: white;
+    font-size: 28px;
+  }
+  
+  .grid-cell[data-value='2048'] {
+    background-color: #edc22e;
+    color: white;
+    font-size: 32px;
+  }
+  
+  .btn {
+    font-size: 18px;
+  }

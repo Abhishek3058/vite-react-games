@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../App.css"; // Import the external CSS file
+import "./tictactoe.css"; // Import the external CSS file
 
 const TicTacToe = () => {
   const [board, setBoard] = useState(Array(9).fill(null));

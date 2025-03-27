@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "./layout/Sidebar";
-import TicTacToe from "./components/TicTacToe";
+import Sidebar from "./layout/sidebar";
+import TicTacToe from "./components/TicTacToe/TicTacToe";
+import Puzzle2048 from "./components/2048/2048";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<h1 className="text-center mt-5 text-dark">Welcome to the Game Zone 🎮</h1>} />
             <Route path="/tic-tac-toe" element={<TicTacToe />} />
+            <Route path="/game-2048" element={<Puzzle2048 />} />
           </Routes>
         </div>
       </div>

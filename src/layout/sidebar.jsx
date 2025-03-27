@@ -43,6 +43,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 <i className="bi bi-grid-3x3-gap"></i> Tic Tac Toe
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/game-2048" className="nav-link text-white">
+                <i className="bi bi-border-all"></i> 2048
+              </Link>
+            </li>
           </ul>
         </div>
       )}
