@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css"; // Import Bootstrap Icons
+
+const games = [
+  { path: "/tic-tac-toe", name: "Tic Tac Toe", icon: "bi bi-grid-3x3-gap" },
+  { path: "/game-2048", name: "2048", icon: "bi bi-border-all" },
+  { path: "/sudoku", name: "Sudoku", icon: "bi bi-table" }, // Added Sudoku game
+];
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
@@ -30,24 +36,21 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
           <ul className="nav nav-pills flex-column mb-4">
             <li className="nav-item">
-              <Link to="/" className="nav-link text-white">
+              <NavLink to="/" className="nav-link text-white" activeclassname="active">
                 <i className="bi bi-house-door"></i> Home
-              </Link>
+              </NavLink>
             </li>
           </ul>
 
           <h5 className="text-secondary">Games</h5>
           <ul className="nav nav-pills flex-column">
-            <li className="nav-item">
-              <Link to="/tic-tac-toe" className="nav-link text-white">
-                <i className="bi bi-grid-3x3-gap"></i> Tic Tac Toe
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/game-2048" className="nav-link text-white">
-                <i className="bi bi-border-all"></i> 2048
-              </Link>
-            </li>
+            {games.map((game) => (
+              <li className="nav-item" key={game.path}>
+                <NavLink to={game.path} className="nav-link text-white" activeclassname="active">
+                  <i className={game.icon}></i> {game.name}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
       )}

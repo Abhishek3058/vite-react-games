@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Sidebar from "./layout/sidebar";
 import TicTacToe from "./components/TicTacToe/TicTacToe";
 import Puzzle2048 from "./components/2048/2048";
+import Sudoku from "./components/Suduko/Suduko";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -33,6 +34,7 @@ function App() {
             <Route path="/" element={<h1 className="text-center mt-5 text-dark">Welcome to the Game Zone 🎮</h1>} />
             <Route path="/tic-tac-toe" element={<TicTacToe />} />
             <Route path="/game-2048" element={<Puzzle2048 />} />
+            <Route path="/sudoku" element={<Sudoku />} />
           </Routes>
         </div>
       </div>

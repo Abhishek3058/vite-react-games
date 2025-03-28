@@ -117,7 +117,7 @@ const Game2048 = () => {
             ))}
           </div>
         ))}
-      </div>
+      </div><br />
 
       <button className="btn btn-danger mt-3" onClick={() => {
         setBoard(addRandomTile(addRandomTile(getEmptyBoard())));
