@@ -3,16 +3,6 @@
   margin-top: 20px;
 }
 
-.sudoku-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 40px);
-  gap: 2px;
-  border: 2px solid black;
-  padding: 5px;
-  margin: 10px auto;
-  width: fit-content;
-}
-
 .sudoku-cell {
   width: 40px;
   height: 40px;

@@ -24,8 +24,6 @@ const moveAndMerge = (board, direction) => {
   let newBoard = board.map(row => [...row]);
 
   const slide = (arr) => {
-    console.log('arr==>',arr);
-    
     let filtered = arr.filter(val => val !== null);
     for (let i = 0; i < filtered.length - 1; i++) {
       if (filtered[i] === filtered[i + 1]) {
@@ -72,24 +70,27 @@ const Game2048 = () => {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(() => Number(localStorage.getItem("highScore")) || 0);
 
+  const handleMove = (direction) => {
+    let newBoard = moveAndMerge(board, direction);
+    if (JSON.stringify(newBoard) !== JSON.stringify(board)) {
+      newBoard = addRandomTile(newBoard);
+      setBoard(newBoard);
+      setScore(prevScore => {
+        const newScore = prevScore + 10;
+        if (newScore > highScore) {
+          setHighScore(newScore);
+          localStorage.setItem("highScore", newScore);
+        }
+        return newScore;
+      });
+    }
+  };
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       const keyMap = { ArrowLeft: "left", ArrowRight: "right", ArrowUp: "up", ArrowDown: "down" };
       if (!keyMap[event.key]) return;
-      
-      let newBoard = moveAndMerge(board, keyMap[event.key]);
-      if (JSON.stringify(newBoard) !== JSON.stringify(board)) {
-        newBoard = addRandomTile(newBoard);
-        setBoard(newBoard);
-        setScore(prevScore => {
-          const newScore = prevScore + 10;
-          if (newScore > highScore) {
-            setHighScore(newScore);
-            localStorage.setItem("highScore", newScore);
-          }
-          return newScore;
-        });
-      }
+      handleMove(keyMap[event.key]);
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -118,6 +119,13 @@ const Game2048 = () => {
           </div>
         ))}
       </div><br />
+
+      <div className="mt-3">
+        <button className="btn btn-secondary m-1" onClick={() => handleMove("up")}>⬆️ Up</button><br />
+        <button className="btn btn-secondary m-1" onClick={() => handleMove("left")}>⬅️ Left</button>
+        <button className="btn btn-secondary m-1" onClick={() => handleMove("right")}>➡️ Right</button><br />
+        <button className="btn btn-secondary m-1" onClick={() => handleMove("down")}>⬇️ Down</button>
+      </div>
 
       <button className="btn btn-danger mt-3" onClick={() => {
         setBoard(addRandomTile(addRandomTile(getEmptyBoard())));
