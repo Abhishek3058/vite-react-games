@@ -1,0 +1,52 @@
+.rock-paper-scissors-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-weight: bold;
+  }
+  
+  .game-mode-selection button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  
+  .choices {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .choice-icon {
+    font-size: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    color: #007bff;
+  }
+  
+  .choice-icon:hover {
+    transform: scale(1.2);
+    color: #0056b3;
+  }
+  
+  .game-result p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .alert {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .btn-danger {
+    font-size: 1rem;
+    padding: 8px 16px;
+    margin-top: 10px;
+  }
+  

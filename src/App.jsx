@@ -5,6 +5,7 @@ import Sidebar from "./layout/sidebar";
 import TicTacToe from "./components/TicTacToe/TicTacToe";
 import Puzzle2048 from "./components/2048/2048";
 import Sudoku from "./components/Suduko/Suduko";
+import RockPaperScissors from "./components/RockPaperScissors/RockPaperScissors";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -35,6 +36,7 @@ function App() {
             <Route path="/tic-tac-toe" element={<TicTacToe />} />
             <Route path="/game-2048" element={<Puzzle2048 />} />
             <Route path="/sudoku" element={<Sudoku />} />
+            <Route path="/rock-paper-scissors" element={<RockPaperScissors />} />
           </Routes>
         </div>
       </div>

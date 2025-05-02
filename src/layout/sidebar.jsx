@@ -6,6 +6,7 @@ const games = [
   { path: "/tic-tac-toe", name: "Tic Tac Toe", icon: "bi bi-grid-3x3-gap" },
   { path: "/game-2048", name: "2048", icon: "bi bi-border-all" },
   { path: "/sudoku", name: "Sudoku", icon: "bi bi-table" }, // Added Sudoku game
+  { path: "/rock-paper-scissors", name: "Rock Paper Scissors", icon: "bi bi-hand-thumbs-up" }, // Added Rock Paper Scissors
 ];
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
