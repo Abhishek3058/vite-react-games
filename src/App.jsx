@@ -7,6 +7,7 @@ import Puzzle2048 from "./components/2048/2048";
 import Sudoku from "./components/Suduko/Suduko";
 import RockPaperScissors from "./components/RockPaperScissors/RockPaperScissors";
 
+
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
