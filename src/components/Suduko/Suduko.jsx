@@ -35,9 +35,15 @@ const isValidMove = (board, row, col, num) => {
 const solveSudoku = (board) => {
     const size = board.length;
     for (let row = 0; row < size; row++) {
-        for (let col = 0; col < size; col++) {
+ for (let col = 0; col < size; col++) {
             if (!board[row][col]) {
-                for (let num = 1; num <= size; num++) {
+                // Create an array of numbers to try and shuffle it
+                let numbers = Array.from({ length: size }, (_, i) => i + 1);
+                for (let i = numbers.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [numbers[i], numbers[j]] = [numbers[j], numbers[i]]; // Fisher-Yates Shuffle
+                }
+                for (let num of numbers) {
                     if (isValidMove(board, row, col, num)) {
                         board[row][col] = num;
                         if (solveSudoku(board)) return true;
